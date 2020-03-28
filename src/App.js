@@ -14,10 +14,18 @@ class App extends React.Component {
       ]
 
       return classes.map((el, i) => {
+        let rangeBlock = (axis) => {
+          return (
+            <div className={el+axis}>
+              <input className={el + axis} type="range" min="1" max="100" /> 
+            </div>
+          )
+        }
+
         return (
-          <div className={el}>
-            <input className={el + '-x'} type="range" min="1" max="100" /> 
-            <input className={el + '-y'} type="range" min="1" max="100" />
+          <div className={el + '-wrapper'} key={i} >
+            {rangeBlock('-x')}
+            {rangeBlock('-y')}
           </div>
         )
         
