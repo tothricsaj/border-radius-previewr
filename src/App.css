@@ -7,3 +7,12 @@
 
   color: white;
 }
+
+.vertical-wrapper {
+  /* transform: rotate(-90deg); */
+}
+
+
+.vertical {
+  appearance: slider-vertical;
+}
