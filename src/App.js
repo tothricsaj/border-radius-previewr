@@ -36,7 +36,7 @@ class App extends React.Component {
     <div className="App">
       <h2>Border Radius previewer</h2>
 
-      <div className="box"></div>
+      <div className="Box"></div>
 
       {sliders()}
       

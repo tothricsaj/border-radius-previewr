@@ -8,11 +8,9 @@
   color: white;
 }
 
-.vertical-wrapper {
-  /* transform: rotate(-90deg); */
-}
-
-
-.vertical {
-  appearance: slider-vertical;
+.Box {
+  width: 300px;
+  height: 300px;
+  border: 1px solid orange;
+  background-color: orange;
 }
