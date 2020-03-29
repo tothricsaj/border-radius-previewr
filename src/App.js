@@ -5,6 +5,17 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
+
+    this.state = {
+      borderRadius: '50% 50% 50% 50% / 50% 50% 50% 50%'
+    }
+
+    this.borderChange = this.borderChange.bind(this)
+  }
+
+  borderChange(event) {
+    console.log(event.target.value)
+
   }
 
   render() {
@@ -21,7 +32,12 @@ class App extends React.Component {
         let rangeBlock = (axis) => {
           return (
             <div className={el+axis}>
-              <input className={el + axis} type="range" min="1" max="100" /> 
+              <input 
+                className={el + axis} 
+                type="range" 
+                min="1" max="100" 
+                onChange={this.testchange}
+              /> 
             </div>
           )
         }
@@ -40,7 +56,7 @@ class App extends React.Component {
     <div className="App">
       <h2>Border Radius previewer</h2>
 
-      <div className="Box"></div>
+      <div className="Box" style={this.state}></div>
 
       {sliders()}
       
