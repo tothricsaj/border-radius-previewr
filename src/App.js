@@ -13,9 +13,19 @@ class App extends React.Component {
     this.borderChange = this.borderChange.bind(this)
   }
 
-  borderChange(event) {
-    console.log(event.target.value)
+  borderChange(event, corner, axis) {
+    let radiusValues = this.state.borderRadius.split(' ')
 
+    switch(corner){
+      case 'top-left':
+        if(axis === '-x') radiusValues[0] = event.target.value + '%'
+        else radiusValues[5] = event.target.value + '%'
+        break
+      default:
+        this.setState({...this.state})
+    }
+
+    this.setState({borderRadius: radiusValues.join(' ')})
   }
 
   render() {
@@ -36,7 +46,7 @@ class App extends React.Component {
                 className={el + axis} 
                 type="range" 
                 min="1" max="100" 
-                onChange={this.testchange}
+                onChange={ev => this.borderChange(ev, el, axis)}
               /> 
             </div>
           )
