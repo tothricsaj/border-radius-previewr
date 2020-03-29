@@ -16,11 +16,16 @@ class App extends React.Component {
   borderChange(event, corner, axis) {
     let radiusValues = this.state.borderRadius.split(' ')
 
+    let setAxis = (index) => {
+      if(axis === '-x') radiusValues[index] = event.target.value + '%'
+      else radiusValues[index + 5] = event.target.value + '%'
+    }
+
     switch(corner){
       case 'top-left':
-        if(axis === '-x') radiusValues[0] = event.target.value + '%'
-        else radiusValues[5] = event.target.value + '%'
+        setAxis(0)
         break
+
       default:
         this.setState({...this.state})
     }
@@ -66,6 +71,7 @@ class App extends React.Component {
     <div className="App">
       <h2>Border Radius previewer</h2>
 
+      <h3>border-radius: {this.state.borderRadius}</h3>
       <div className="Box" style={this.state}></div>
 
       {sliders()}
