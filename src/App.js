@@ -25,7 +25,15 @@ class App extends React.Component {
       case 'top-left':
         setAxis(0)
         break
-
+      case 'top-right':
+        setAxis(1)
+        break
+      case 'bottom-left':
+        setAxis(2)
+        break
+      case 'bottom-right':
+        setAxis(3)
+        break
       default:
         this.setState({...this.state})
     }
