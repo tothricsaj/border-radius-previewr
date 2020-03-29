@@ -58,7 +58,7 @@ class App extends React.Component {
               <input 
                 className={el + axis} 
                 type="range" 
-                min="1" max="100" 
+                min="0" max="100" 
                 onChange={ev => this.borderChange(ev, el, axis)}
               /> 
             </div>
