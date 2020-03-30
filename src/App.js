@@ -28,10 +28,10 @@ class App extends React.Component {
       case 'top-right':
         setAxis(1)
         break
-      case 'bottom-left':
+      case 'bottom-right':
         setAxis(2)
         break
-      case 'bottom-right':
+      case 'bottom-left':
         setAxis(3)
         break
       default:
@@ -47,14 +47,15 @@ class App extends React.Component {
       let classes = [
         'top-left',
         'top-right',
-        'bottom-left',
-        'bottom-right'
+        'bottom-right',
+        'bottom-left'
       ]
 
       return classes.map((el, i) => {
         let rangeBlock = (axis) => {
           return (
-            <div className={el+axis}>
+            <div className={el+axis + ' ranger-box-' + el+axis}>
+              <label>{axis.split('')[1]}</label>
               <input 
                 className={el + axis} 
                 type="range" 
@@ -67,6 +68,7 @@ class App extends React.Component {
 
         return (
           <div className={el + '-wrapper'} key={i} >
+            <p>{el}</p>
             {rangeBlock('-x')}
             {rangeBlock('-y')}
           </div>
@@ -80,9 +82,12 @@ class App extends React.Component {
       <h2>Border Radius previewer</h2>
 
       <h3>border-radius: {this.state.borderRadius}</h3>
-      <div className="Box" style={this.state}></div>
-
-      {sliders()}
+      <div className="BoxWrapper">
+        <div className="Box" style={this.state}></div>
+        <div className="sliderBox">
+          {sliders()}
+        </div>
+      </div>
       
     </div>
   );
